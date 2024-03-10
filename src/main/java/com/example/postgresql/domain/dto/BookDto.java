@@ -1,5 +1,6 @@
-package com.example.postgresql.domain;
+package com.example.postgresql.domain.dto;
 
+import com.example.postgresql.domain.entities.AuthorEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,16 +11,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Entity
-@Table(name="books")
-public class Book {
+public class BookDto {
 
-    @Id
     private String isbn;
 
     private String title;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "author_id")
-    private Author author;
+    private AuthorDto author;
 }
